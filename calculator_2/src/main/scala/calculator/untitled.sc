@@ -1,0 +1,1 @@
+Double.NaN +  2.0

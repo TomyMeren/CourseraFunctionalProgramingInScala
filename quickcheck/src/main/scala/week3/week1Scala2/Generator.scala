@@ -1,0 +1,14 @@
+package week3.week1Scala2
+
+trait Generator[+T] {
+
+  self =>
+
+  def generate:T
+
+  def map[S](f:T => S):Generator[S] = new Generator[S] {
+    def generate:S = f(self.generate) }
+
+  def flatMap[S](f:T => Generator[S]):Generator[S] = new Generator[S] {
+    def generate:S = f(self.generate).generate}
+}
